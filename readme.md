@@ -13,3 +13,5 @@ This is a simple web application built with Python and Flask that fetches and di
   - Trading volume in the last 24 hours
 - User-friendly web interface built with HTML and CSS.
 
+![image](https://github.com/user-attachments/assets/c0dfa9f3-42bd-4245-aab4-a464cc310553)
+

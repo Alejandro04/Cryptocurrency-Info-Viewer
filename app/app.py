@@ -58,7 +58,7 @@ def obtener_info_criptomonedas():
 
         # Verificar si Bitcoin está por debajo de $95,000 y enviar correo si es necesario
         for moneda in datos:
-            if moneda['id'] == 'bitcoin' and moneda['current_price'] < 95000:
+            if moneda['id'] == 'bitcoin' and moneda['current_price'] < 91000:
                 enviar_alerta(moneda['current_price'])
 
         return datos

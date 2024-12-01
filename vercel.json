@@ -8,7 +8,9 @@
     {
       "src": "ui/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "ui/public" }
+      "config": {
+        "distDir": "ui/.svelte-kit/output/client" 
+      }
     }
   ],
   "routes": [
@@ -18,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "ui/public/$1"
+      "dest": "ui/.svelte-kit/output/client/$1"
     }
   ],
   "functions": {

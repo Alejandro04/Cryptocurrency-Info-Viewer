@@ -47,6 +47,11 @@
     h1 {
       text-align: center;
     }
+    
+    img{
+      width: 50px;
+      height: 50px;
+    }
   </style>
 </head>
 
@@ -56,6 +61,7 @@
     <table>
       <thead>
         <tr>
+          <th>Currency</th>
           <th>Name</th>
           <th>Symbol</th>
           <th>Price</th>
@@ -66,6 +72,7 @@
       <tbody>
         {% for cripto in criptomonedas %}
         <tr>
+          <td> <img src={{cripto.image}} /> </td>
           <td>{{ cripto.name }}</td>
           <td>{{ cripto.symbol.upper() }}</td>
           <td>${{ "{:,.2f}".format(cripto.current_price) }}</td>

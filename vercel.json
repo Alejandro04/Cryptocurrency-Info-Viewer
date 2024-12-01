@@ -20,5 +20,8 @@
       "src": "/(.*)",
       "dest": "ui/public/$1"
     }
-  ]
+  ],
+  "env": {
+    "NODE_VERSION": "18"
+  }
 }

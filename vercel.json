@@ -4,12 +4,20 @@
     {
       "src": "app/app.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "ui/package.json",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "app/app.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "ui/.svelte-kit/output/client/$1"
     }
   ]
 }

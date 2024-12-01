@@ -15,3 +15,11 @@ This is a simple web application built with Python and Flask that fetches and di
 
 ![image](https://github.com/user-attachments/assets/c0dfa9f3-42bd-4245-aab4-a464cc310553)
 
+## POC
+- Deploy UI with sveltekit
+
+## Result
+- poc failed, vercel is complex for implement this architecture
+
+## Possibles ways
+- Use aws cloud functions (services) and s3 (ui)

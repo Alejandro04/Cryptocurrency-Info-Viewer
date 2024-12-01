@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify
 import requests
 import smtplib
 from email.mime.text import MIMEText
@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 import time
 import threading
+from flask_cors import CORS
 
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
@@ -19,6 +20,7 @@ EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
 # Crear la aplicación Flask
 app = Flask(__name__)
+CORS(app)
 
 # Función para enviar correo
 def enviar_alerta(precio_bitcoin):
@@ -74,13 +76,19 @@ def job_automatico():
         time.sleep(60)  # Esperar 1 minuto
 
 # Ruta principal
-@app.route('/')
+@app.route('/api/criptomonedas', methods=['GET'])
 def index():
     criptomonedas = obtener_info_criptomonedas()
     if not criptomonedas:
-        error = "No se pudo obtener información de las criptomonedas."
-        return render_template('index.html', criptomonedas=[], error=error)
-    return render_template('index.html', criptomonedas=criptomonedas, error=None)
+        return jsonify({
+            "success": False,
+            "error": "No se pudo obtener información de las criptomonedas.",
+            "data": []
+        }), 500
+    return jsonify({
+        "success": True,
+        "data": criptomonedas
+    }), 200
 
 # Punto de entrada principal
 if __name__ == '__main__':
